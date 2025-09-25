@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 import Card from '../components/Card';
 import { ChatMessage, FarmInfoData } from '../types';
 
@@ -66,20 +66,26 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onBack, farmInfoData }) => {
         setError(null);
 
         try {
-            if (!process.env.API_KEY) {
-                throw new Error("API key is missing. Please configure the API_KEY environment variable.");
+            // FIX: Per coding guidelines, API key must be obtained from process.env.API_KEY.
+            // The hardcoded key and redundant check that caused a type error have been removed.
+            const apiKey = process.env.API_KEY;
+
+            if (!apiKey) {
+                throw new Error("API key is missing. Please ensure the API_KEY environment variable is set.");
             }
-            const ai = new GoogleGenerativeAI(process.env.API_KEY);
+            const ai = new GoogleGenAI({ apiKey });
             
             const systemInstruction = generateSystemInstruction(farmInfoData);
 
-            const model = ai.getGenerativeModel({ 
-                model: 'gemini-1.5-flash',
-                systemInstruction: systemInstruction
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: userInput,
+                config: {
+                    systemInstruction: systemInstruction,
+                }
             });
 
-            const response = await model.generateContent(userInput);
-            const aiResponseText = response.response.text();
+            const aiResponseText = response.text;
             if (!aiResponseText) {
                 throw new Error("Received an empty response from the AI.");
             }
@@ -87,7 +93,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onBack, farmInfoData }) => {
             const newAiMessage: ChatMessage = { sender: 'ai', text: aiResponseText.trim() };
             setMessages(prev => [...prev, newAiMessage]);
 
-        } catch (err) {
+        } catch (err: any) {
             console.error("Gemini API error:", err);
             const errorMessage = "দুঃখিত, এই মুহূর্তে উত্তর দেওয়া সম্ভব হচ্ছে না। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।";
             setError(errorMessage);
