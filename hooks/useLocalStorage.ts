@@ -1,5 +1,4 @@
-
-import { useState, useEffect, Dispatch, SetStateAction } from 'https://aistudiocdn.com/react@^19.1.1';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 // FIX: Changed React.Dispatch<React.SetStateAction<T>> to Dispatch<SetStateAction<T>> and updated import.
 function useLocalStorage<T,>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] {

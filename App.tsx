@@ -1,5 +1,4 @@
-
-import React, { useState, createContext, useContext, useEffect } from 'https://aistudiocdn.com/react@^19.1.1';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { View, FeedDataItem, CompanyInfoData, FarmInfoData, NoticeItem } from './types';
 import MainMenu from './views/MainMenu';
 import FeedCalculator from './views/FeedCalculator';

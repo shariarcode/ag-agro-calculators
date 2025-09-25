@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef } from 'https://aistudiocdn.com/react@^19.1.1';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from '../components/Card';
 import InputGroup from '../components/InputGroup';
 import { supabase } from '../lib/supabaseClient';

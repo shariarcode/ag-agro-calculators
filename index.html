@@ -73,21 +73,10 @@
   <!-- PDF Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
-  <!-- Add Babel to transpile JSX in the browser -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.1.1/"
-  }
-}
-</script>
 <link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-[#e0e5ec] dark:bg-gray-900">
   <div id="root"></div>
-  <!-- Change script type to text/babel for Babel to transpile it -->
-  <script type="text/babel" data-type="module" src="index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
