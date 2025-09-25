@@ -1,5 +1,5 @@
 
-import React, { ReactNode } from 'https://aistudiocdn.com/react@^19.1.1';
+import React, { ReactNode } from 'react';
 
 interface CardProps {
   children: ReactNode;

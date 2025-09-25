@@ -1,7 +1,6 @@
 
-import React, { useState, useRef, useEffect } from 'https://aistudiocdn.com/react@^19.1.1';
-// FIX: Changed import to full URL to resolve build error on Vercel
-import { GoogleGenAI } from 'https://aistudiocdn.com/google-genai@0.0.3';
+import React, { useState, useRef, useEffect } from 'react';
+import { GoogleGenAI } from '@google/genai';
 import Card from '../components/Card';
 import { ChatMessage, FarmInfoData } from '../types';
 

@@ -1,5 +1,5 @@
-// FIX: Changed import to full URL to prevent potential build errors on Vercel
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+import { createClient } from '@supabase/supabase-js';
 
 // The process.env variables are NOT available in a static client-side application.
 // We must use the actual values here. The Supabase anon key is public and safe to expose.
