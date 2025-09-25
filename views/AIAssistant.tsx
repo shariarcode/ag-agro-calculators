@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+// FIX: Changed import to full URL to resolve build error on Vercel
+import { GoogleGenAI } from 'https://aistudiocdn.com/google-genai@0.0.3';
 import Card from '../components/Card';
 import { ChatMessage, FarmInfoData } from '../types';
 
@@ -7,6 +8,10 @@ interface AIAssistantProps {
     onBack: () => void;
     farmInfoData: FarmInfoData;
 }
+
+// FIX: Reverted to using a hardcoded key as process.env is not available in the browser.
+const GEMINI_API_KEY = "AIzaSyAUHuD0rkHaU91OZbiqx_zKkqd0brqn4eU";
+
 
 // A simple loading indicator component
 const LoadingIndicator: React.FC = () => (
@@ -66,12 +71,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ onBack, farmInfoData }) => {
         setError(null);
 
         try {
-            // FIX: Per coding guidelines, API key must be obtained from process.env.API_KEY.
-            // The hardcoded key and redundant check that caused a type error have been removed.
-            const apiKey = process.env.API_KEY;
+            const apiKey = GEMINI_API_KEY;
 
             if (!apiKey) {
-                throw new Error("API key is missing. Please ensure the API_KEY environment variable is set.");
+                throw new Error("API key is missing. Please add the GEMINI_API_KEY in `views/AIAssistant.tsx`.");
             }
             const ai = new GoogleGenAI({ apiKey });
             
