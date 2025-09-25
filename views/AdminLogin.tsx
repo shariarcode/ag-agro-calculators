@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState } from 'https://aistudiocdn.com/react@^19.1.1';
 import Card from '../components/Card';
 import InputGroup from '../components/InputGroup';
 

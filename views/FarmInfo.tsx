@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React from 'https://aistudiocdn.com/react@^19.1.1';
 import Card from '../components/Card';
 import { FarmInfoData } from '../types';
 
