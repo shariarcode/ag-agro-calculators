@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AG Agro Industries Ltd's Calculators</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { 
+      font-family: 'Noto Sans Bengali', 'Poppins', sans-serif; 
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #root {
+      perspective: 1000px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleUp {
+      from { transform: scale(0.95) translateY(10px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    @keyframes flipIn {
+      from {
+        transform: rotateY(90deg) scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: rotateY(0deg) scale(1);
+        opacity: 1;
+      }
+    }
+    @keyframes slideInFromBottom {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.2s ease-out forwards;
+    }
+    .animate-scaleUp {
+      animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .animate-flipIn {
+      animation: flipIn 0.5s ease-in-out forwards;
+      transform-style: preserve-3d;
+    }
+    .animate-slideInFromBottom {
+      animation: slideInFromBottom 0.4s ease-out forwards;
+    }
+    /* For staggered animations */
+    .stagger-animation > * {
+      opacity: 0; /* Start hidden */
+      animation: slideInFromBottom 0.5s ease-out forwards;
+      animation-delay: calc(var(--stagger-index, 0) * 80ms);
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/google-genai@0.0.3",
+    "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
+  }
+}
+</script>
+  <!-- PDF Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-[#e0e5ec] dark:bg-gray-900">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
