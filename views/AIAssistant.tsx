@@ -1,6 +1,6 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import React, { useState, useRef, useEffect } from 'https://aistudiocdn.com/react@^19.1.1';
+import { GoogleGenAI } from 'https://aistudiocdn.com/google-genai@0.0.3';
 import Card from '../components/Card';
 import { ChatMessage, FarmInfoData } from '../types';
 

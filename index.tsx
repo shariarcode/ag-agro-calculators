@@ -1,6 +1,6 @@
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'https://aistudiocdn.com/react@^19.1.1';
+import ReactDOM from 'https://aistudiocdn.com/react-dom@^19.1.1/client';
 import App from './App';
 
 const rootElement = document.getElementById('root');

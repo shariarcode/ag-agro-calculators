@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'https://aistudiocdn.com/react@^19.1.1';
 import Card from '../components/Card';
 import { supabase } from '../lib/supabaseClient';
 import { FeedDataItem, CompanyInfoData, FarmInfoData, FeedMill, ManagementMember, ProductService, VaccineInfo, NoticeItem } from '../types';

@@ -1,5 +1,5 @@
 
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
 // The process.env variables are NOT available in a static client-side application.
 // We must use the actual values here. The Supabase anon key is public and safe to expose.
